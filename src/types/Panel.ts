@@ -1,9 +1,8 @@
 export type Panel = {
   id?: number;
-  comment: string;
-  score: number;
-  created_at: string;
-  visible: boolean;
-  userid: number;
-  panelId: number;
+  title: string;
+  published: boolean;
+  authorId: number;
+  websiteUrl: string;
+  created_at: Date;
 };
