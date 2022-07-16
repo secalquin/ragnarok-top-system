@@ -1,4 +1,4 @@
-export type Panel = {
+export type Feedback = {
   id?: number;
   comment: string;
   score: number;
