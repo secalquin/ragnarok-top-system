@@ -1,0 +1,15 @@
+version: "3"
+services:
+  main_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      NODE_ENV: development
+      SERVER_PORT: 8080
+      DATABASE_URL: "postgresql://postgres:SebA661802.@localhost:5432/ragnaroktop?schema=public"
+      FORCE_SEEDER: false
+      SALT_HASH_PASSWORD: 15
+    ports:
+      - 8080:8080
