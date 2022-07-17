@@ -3,6 +3,8 @@ import { PrismaSeedEnum } from "../../src/types/PrismaSeed";
 
 const prisma = new PrismaClient();
 
+export const forceSeed: boolean = Boolean(process.env.FORCE_SEEDER) || false;
+
 export const hasData = async (name: PrismaSeedEnum) => {
   return await prisma.prismaSeeder.findUnique({
     where: {

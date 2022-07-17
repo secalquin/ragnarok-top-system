@@ -7,4 +7,6 @@ export type PrismaSeed = {
 
 export enum PrismaSeedEnum {
   Panel = "panel_seed",
+  User = "user_seed",
+  Role = "role_seed",
 }

@@ -5,3 +5,5 @@ export * from "./Rate";
 export * from "./ResponseCustom";
 export * from "./Panel";
 export * from "./Feedback";
+export * from "./User";
+export * from "./Role";
