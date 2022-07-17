@@ -7,7 +7,7 @@ import { createSeedLog, deleteRecord, forceSeed, hasData } from "./utilsSeed";
 const prisma = new PrismaClient();
 const { User } = PrismaSeedEnum;
 
-export const seedPanels = async (): Promise<boolean> => {
+export const seedUsers = async (): Promise<boolean> => {
   if (!(await hasData(User)) || forceSeed) {
     await deleteRecord(User);
     await bulkCreateUsers(usersData);
