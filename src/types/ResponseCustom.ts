@@ -1,4 +1,4 @@
 export type ResponseCustom = {
-  data?: any;
+  data?: unknown;
   statusCode: number;
 };
