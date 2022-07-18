@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import morgan from "morgan";
+import { prisma } from "./prisma";
 import Routes from "./routes";
 
 class Server {
@@ -12,6 +13,8 @@ class Server {
 
     this.middlewares();
     this.routes();
+
+    this.healthCheck();
   }
 
   middlewares() {
@@ -22,6 +25,10 @@ class Server {
 
   routes() {
     this.app.use("/api/v1", Routes);
+  }
+
+  async healthCheck() {
+    await prisma.$queryRaw`SELECT 1`;
   }
 
   listen() {

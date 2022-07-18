@@ -13,3 +13,16 @@ services:
       SALT_HASH_PASSWORD: 15
     ports:
       - 8080:8080
+  #  depends_on:
+  #    - postgres
+
+  #postgres:
+  #  container_name: postgres_ragnarok_top
+  #  image: 'postgres:latest'
+  #  restart: always
+  #  volumes:
+  #    - './postgres_data:/var/lib/postgresql/data'
+  #  environment:
+  #    - POSTGRES_PASSWORD=SebA661802.
+  #  ports:
+  #    - '5432:5432'
