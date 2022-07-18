@@ -1,10 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../../src/config/prisma";
 import { User } from "../../src/types";
 import { PrismaSeedEnum } from "../../src/types/PrismaSeed";
 import { usersData } from "../data";
 import { createSeedLog, deleteRecord, forceSeed, hasData } from "./utilsSeed";
 
-const prisma = new PrismaClient();
 const { User } = PrismaSeedEnum;
 
 export const seedUsers = async (): Promise<boolean> => {

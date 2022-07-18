@@ -1,10 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../../src/config/prisma";
 import { Panel } from "../../src/types";
 import { PrismaSeedEnum } from "../../src/types/PrismaSeed";
 import { panelsData } from "../data/panelData";
 import { createSeedLog, deleteRecord, hasData } from "./utilsSeed";
 
-const prisma = new PrismaClient();
 const forceSeed: boolean = Boolean(process.env.FORCE_SEEDER) || false;
 const { Panel } = PrismaSeedEnum;
 

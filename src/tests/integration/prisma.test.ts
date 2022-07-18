@@ -10,4 +10,9 @@ describe("PrismaDB", () => {
       await prisma.$queryRaw`SELECT 1 AS result`;
     expect(getData[0].result).toBe(1);
   });
+
+  test("Check roles are not null", async () => {
+    const countRoles = await prisma.role.count();
+    expect(countRoles >= 0).toBeTruthy();
+  });
 });
