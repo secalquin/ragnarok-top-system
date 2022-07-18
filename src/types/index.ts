@@ -7,4 +7,3 @@ export * from "./Panel";
 export * from "./Feedback";
 export * from "./User";
 export * from "./Role";
-export * from "./ModeEnv";
