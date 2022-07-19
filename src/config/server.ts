@@ -36,5 +36,9 @@ class Server {
       console.log(`Server listen on Port ${this.port}`);
     });
   }
+
+  close() {
+    process.exit(1);
+  }
 }
 export default Server;

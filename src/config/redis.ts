@@ -14,4 +14,4 @@ const SET_ASYNC = promisify(client.set).bind(client);
 
 const cacheKey = (name_key: string): string => `${name_key.toLowerCase()}`;
 
-export { GET_ASYNC, SET_ASYNC, cacheKey };
+export { GET_ASYNC, SET_ASYNC, cacheKey, client };

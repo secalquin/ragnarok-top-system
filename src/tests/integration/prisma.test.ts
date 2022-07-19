@@ -5,6 +5,10 @@ type PrismaRawResult = {
 };
 
 describe("PrismaDB", () => {
+  afterAll((done: jest.DoneCallback) => {
+    prisma.$disconnect().then(() => done());
+  });
+
   test("Check connection", async () => {
     const getData: PrismaRawResult[] =
       await prisma.$queryRaw`SELECT 1 AS result`;

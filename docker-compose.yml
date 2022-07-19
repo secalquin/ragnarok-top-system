@@ -41,3 +41,9 @@ services:
       - POSTGRES_PASSWORD=SebA661802.
     ports:
       - '5432:5432'
+
+  redis-commander:
+    image: ghcr.io/joeferner/redis-commander:latest
+    restart: always
+    ports:
+      - '7070:8081'
