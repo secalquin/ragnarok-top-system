@@ -1,20 +1,14 @@
-FROM node:16 as builder
+FROM node:16-alpine
+
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
 COPY package*.json ./
-RUN npm ci
-RUN npx prisma generate
-COPY . .
-RUN npm run build
 
-FROM node:16
-# Create app directory
-WORKDIR /usr/src/app
-# Install app dependencies
-COPY package*.json ./
-RUN npm ci --production
-COPY --from=builder /usr/src/app/dist ./dist
+RUN npm install
+COPY . . 
 EXPOSE 8080
-CMD [ "node", "dist/app.js" ]
+
+RUN npx prisma generate
+RUN npm run build
+CMD [ "npm", "run", "start" ]

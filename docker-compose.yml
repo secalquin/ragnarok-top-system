@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   main_service:
     build:
       context: .
@@ -7,22 +8,36 @@ services:
     restart: always
     environment:
       NODE_ENV: development
-      SERVER_PORT: 8080
-      DATABASE_URL: "postgresql://postgres:SebA661802.@localhost:5432/ragnaroktop?schema=public"
+      SERVER_PORT: 8085
+      DATABASE_URL: "postgresql://postgres:SebA661802.@postgres:5432/ragnaroktop?schema=public"
       FORCE_SEEDER: false
       SALT_HASH_PASSWORD: 15
+      REDIS_HOST: "redis"
+      REDIS_PORT: 6379
     ports:
       - 8080:8080
-  #  depends_on:
-  #    - postgres
+    depends_on:
+      - redis
+      - postgres
+    links:
+      - redis
+      - postgres
 
-  #postgres:
-  #  container_name: postgres_ragnarok_top
-  #  image: 'postgres:latest'
-  #  restart: always
-  #  volumes:
-  #    - './postgres_data:/var/lib/postgresql/data'
-  #  environment:
-  #    - POSTGRES_PASSWORD=SebA661802.
-  #  ports:
-  #    - '5432:5432'
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redisdata:/data
+    entrypoint: redis-server --appendonly yes
+
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    volumes:
+      - './postgres_data:/var/lib/postgresql/data'
+    environment:
+      - POSTGRES_PASSWORD=SebA661802.
+    ports:
+      - '5432:5432'

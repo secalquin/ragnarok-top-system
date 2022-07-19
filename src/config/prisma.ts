@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { QueryEvent } from "../types/QueryEvent";
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 const prisma = new PrismaClient({
@@ -6,7 +7,7 @@ const prisma = new PrismaClient({
   log: [{ level: "query", emit: "event" }],
 });
 
-prisma.$on("query", (e) => {
+prisma.$on("query", (e: QueryEvent) => {
   if (["development", "qa"].includes(NODE_ENV)) {
     console.log("Query: " + e.query);
     console.log("Params: " + e.params);
