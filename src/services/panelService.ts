@@ -1,6 +1,7 @@
 import { prisma } from "../config/prisma";
-import { cacheKey, GET_ASYNC, SET_ASYNC } from "../config/redis";
+import { GET_ASYNC, SET_ASYNC } from "../config/redis";
 import { Panel, ResponseCustom } from "../types";
+import { cacheKey } from "../utils";
 
 const CUSTOM_RESPONSE: ResponseCustom = { data: null, statusCode: 0 };
 

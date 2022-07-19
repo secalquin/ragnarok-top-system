@@ -9,6 +9,7 @@ const prisma = new PrismaClient({
 
 prisma.$on("query", (e: QueryEvent) => {
   if (["development", "qa"].includes(NODE_ENV)) {
+    console.log("＼n");
     console.log("Query: " + e.query);
     console.log("Params: " + e.params);
     console.log("Duration: " + e.duration + "ms");

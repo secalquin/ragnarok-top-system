@@ -1,4 +1,5 @@
-import { cacheKey, GET_ASYNC, SET_ASYNC, client } from "../../config/redis";
+import { GET_ASYNC, SET_ASYNC, client } from "../../config/redis";
+import { cacheKey } from "../../utils";
 
 describe("Redis tests", () => {
   const REDIS_TESTS_TIME: number = Number(process.env.REDIS_TESTS_TIME) || 300;

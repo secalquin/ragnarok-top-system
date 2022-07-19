@@ -1,4 +1,4 @@
-import { cacheKey } from "../../config/redis";
+import { cacheKey } from "../../utils";
 
 describe("Redis test function", () => {
   test("Check return is string", () => {
