@@ -1,9 +1,7 @@
 import { prisma } from "../config/prisma";
 import { GET_ASYNC, SET_ASYNC } from "../config/redis";
-import { Panel, ResponseCustom } from "../types";
+import { CUSTOM_RESPONSE, Panel, ResponseCustom } from "../types";
 import { cacheKey } from "../utils";
-
-const CUSTOM_RESPONSE: ResponseCustom = { data: null, statusCode: 0 };
 
 export const getAll = async (): Promise<ResponseCustom> => {
   const replyPanels = await GET_ASYNC(cacheKey(`panels`));
