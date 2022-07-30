@@ -3,7 +3,7 @@ import { getAllRoles } from "../services/rolService";
 import { ResponseCustom } from "../types";
 
 export const getRoles = async (
-  req: Request,
+  _req: Request,
   resp: Response<ResponseCustom>
 ) => {
   const { data, statusCode } = await getAllRoles();

@@ -7,16 +7,21 @@
     "start": "node ./dist/app.js",
     "dev": "ts-node-dev --inspect --transpile-only ./app.ts",
     "build": "tsc",
-    "test": "jest --verbose --detectOpenHandles",
-    "test:unit": "jest --watchAll --verbose --detectOpenHandles --testPathPattern=src/tests/unit-tests",
-    "test:integration": "jest --watchAll --verbose --detectOpenHandles --testPathPattern=src/tests/integration",
-    "test:coverage": "jest --coverage -c",
+    "test": "jest",
+    "test:unit": "jest --watchAll --testPathPattern=src/tests/unit-tests",
+    "test:integration": "jest --watchAll --testPathPattern=src/tests/integration",
+    "test:coverage": "jest --coverage --watchAll -c",
     "lint": "eslint . --ext .ts",
     "lint:fix": "npm run lint -- --fix",
     "seed": "esbuild prisma/seed.ts --outfile=node_modules/tmp-seed.cjs --bundle --format=cjs --external:prisma --external:@prisma/client && node node_modules/tmp-seed.cjs --preview-feature"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "testMatch": [
+      "**/?(*.)+(test).[t]s"
+    ],
+    "verbose": false,
+    "detectOpenHandles": true
   },
   "repository": {
     "type": "git",

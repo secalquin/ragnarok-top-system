@@ -10,7 +10,7 @@ services:
       NODE_ENV: development
       SERVER_PORT: 3001
       DATABASE_URL: "postgresql://postgres:SebA661802.@postgres:5432/ragnaroktop?schema=public"
-      FORCE_SEEDER: false
+      FORCE_SEEDER: "false"
       SALT_HASH_PASSWORD: 15
       REDIS_HOST: "redis"
       REDIS_PORT: 6379
