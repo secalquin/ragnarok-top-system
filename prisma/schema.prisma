@@ -19,6 +19,8 @@ model User {
   role          Role       @relation(fields: [roleId], references: [id])
   posts         Panel[]
   PanelFeedback Feedback[]
+
+  @@map("users")
 }
 
 model Role {
@@ -26,6 +28,7 @@ model Role {
   name String @unique
 
   user User[]
+  @@map("roles")
 }
 
 model Panel {
@@ -40,6 +43,7 @@ model Panel {
   PanelFeedback Feedback[]
 
   @@unique([authorId])
+  @@map("panels")
 }
 
 model Feedback {
@@ -55,6 +59,7 @@ model Feedback {
   author User  @relation(fields: [userId], references: [id])
 
   @@unique([userId, panelId])
+  @@map("feedbacks")
 }
 
 model PrismaSeeder {
