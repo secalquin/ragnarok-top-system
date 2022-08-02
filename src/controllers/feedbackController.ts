@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { prisma } from "../config/prisma";
 import { getFeedback } from "../services/feedbackService";
-import { ErrorCustom, ResponseCustom } from "../types";
+import { ErrorCustom, initialErrorValue, ResponseCustom } from "../types";
 
 export const getFeedbackFromPanel = async (
   req: Request,
@@ -20,8 +20,10 @@ export const validateRequest = async (
   const getPanelId = await prisma.panel.count({
     where: { id: Number(panelId) },
   });
+
   if (!getPanelId) {
     return resp.status(404).json({
+      ...initialErrorValue,
       errors: [
         { key: "panelId", message: "Panel not found", location: "params" },
       ],

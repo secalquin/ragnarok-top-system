@@ -8,3 +8,8 @@ export type ErrorValues = {
   message: string;
   location: string;
 };
+
+export const initialErrorValue: ErrorCustom = {
+  errors: [],
+  statusCode: 0,
+};
